@@ -46,7 +46,14 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:${{ env.COMMIT_SHA }}
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
-      # Run Docker Compose
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Run Docker Compose
         run: |
           docker-compose -f docker-compose.yml up --build -d
