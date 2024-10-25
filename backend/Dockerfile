@@ -5,7 +5,7 @@ FROM openjdk:21-jdk
 WORKDIR /app
 
 # Copy the application JAR file to the container
-COPY target/CodeEditor-Backend-0.0.1-SNAPSHOT.jar app.jar
+COPY target/*.jar /app/app.jar
 
 # Expose the port the Spring Boot application will run on
 EXPOSE 8085 8080
