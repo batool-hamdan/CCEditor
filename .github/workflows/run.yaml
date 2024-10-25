@@ -57,3 +57,16 @@ jobs:
       - name: Run Docker Compose
         run: |
           docker-compose -f docker-compose.yml up --build -d
+          
+  stop-services:
+    runs-on: self-hosted
+    needs: deploy  # Optional if you want to ensure 'deploy' runs before 'stop'
+    if: github.event_name == 'workflow_dispatch'  # This makes 'stop' run only on manual trigger
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Stop Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml down
