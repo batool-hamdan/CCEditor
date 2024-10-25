@@ -41,7 +41,7 @@ jobs:
       # Build and Push Docker Image for Frontend
       - name: Build and Push Docker Image for Frontend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest -f frontend/Dockerfile frontend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:${{ env.COMMIT_SHA }} -f frontend/Dockerfile frontend
           docker tag ${{ secrets.DOCKER_USERNAME }}/frontend:${{ env.COMMIT_SHA }} ${{ secrets.DOCKER_USERNAME }}/frontend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:${{ env.COMMIT_SHA }}
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
