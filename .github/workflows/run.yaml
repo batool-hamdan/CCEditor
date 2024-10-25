@@ -31,16 +31,16 @@ jobs:
       # Build and Push Docker Image for Backend
       - name: Build and Push Docker Image for Backend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest -f backend/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          sudo docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest -f backend/Dockerfile .
+          sudo docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
 
       # Build and Push Docker Image for Frontend
       - name: Build and Push Docker Image for Frontend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest -f frontend/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          sudo docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest -f frontend/Dockerfile .
+          sudo docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
       # Run Docker Compose
       - name: Run Docker Compose
         run: |
-          docker-compose -f docker-compose.yml up --build
+          sudo docker-compose -f docker-compose.yml up --build
