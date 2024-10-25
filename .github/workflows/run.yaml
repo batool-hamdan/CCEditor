@@ -18,8 +18,8 @@ jobs:
         run: |
           cd backend && mvn clean install -DskipTests
         
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v2
 
       # Log in to Docker Hub
       - name: Log in to Docker Hub
