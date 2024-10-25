@@ -19,7 +19,7 @@ services:
     pull_policy: always
     ports:
       - "8080:8080"
-      - "8085:8085"
+      - "30085:30085"
     restart: always
     depends_on:
       - mongodb
