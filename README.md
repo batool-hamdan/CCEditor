@@ -1,2 +1,2 @@
 # CCEditor
-collaborative code editor
+collaborative code editor project
