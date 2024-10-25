@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: batool-self-hosted
+    runs-on: batool-aws-self-hostedrunner
     
     steps:
       - name: Checkout code
