@@ -1,0 +1,16 @@
+name: CICD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: batool-self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run a sample script
+        run: echo "Hello from self-hosted runner!"
