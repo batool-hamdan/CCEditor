@@ -15,7 +15,7 @@ services:
       - shared-net
 
   backend:
-    image: backend:latest
+    image: batool83/backend:latest
     ports:
       - "8080:8080"
       - "8085:8085"
@@ -26,7 +26,7 @@ services:
       - shared-net
 
   frontend:
-    image: frontend:latest
+    image: batool83/frontend:latest
     ports:
       - "3000:3000"
     restart: always
