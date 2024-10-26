@@ -47,7 +47,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
   deploy:
-    runs-on: self-hosted
+    runs-on: batool-self-hosted
     needs: build
 
     steps:
@@ -61,9 +61,9 @@ jobs:
           docker-compose -f docker-compose.yml up --build -d
 
   stop-services:
-    runs-on: self-hosted
-    needs: deploy  # Optional if you want to ensure 'deploy' runs before 'stop'
-    if: github.event_name == 'workflow_dispatch'  # This makes 'stop' run only on manual trigger
+    runs-on: batool-self-hosted
+    needs: deploy
+    if: github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Checkout code
