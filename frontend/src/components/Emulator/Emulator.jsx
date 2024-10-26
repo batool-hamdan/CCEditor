@@ -12,7 +12,7 @@ export const Emulator = (props) => {
         <script>${js || ""}</script>
       </html>`}
         title="output"
-        sandbox="allow-modals allow-forms allow-popups allow-scripts"
+        sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
         frameBorder="0"
         width="100%"
         height="100%"
