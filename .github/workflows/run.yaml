@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: batool-self-hosted
+    runs-on: batool-aws-runner
     
     steps:
       - name: Checkout code
@@ -47,7 +47,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
   deploy:
-    runs-on: batool-self-hosted
+    runs-on: batool-aws-runner
     needs: build
 
     steps:
@@ -61,7 +61,7 @@ jobs:
           docker-compose -f docker-compose.yml up --build -d
 
   stop-services:
-    runs-on: batool-self-hosted
+    runs-on: batool-aws-runner
     needs: deploy
     if: github.event_name == 'workflow_dispatch'
 
