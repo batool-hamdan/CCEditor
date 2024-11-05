@@ -4,4 +4,4 @@ docker login -u batool83 -p BeBo@1998
 docker push batool83/backend:latest && docker push batool83/frontend:latest
 docker-compose -f docker-compose.yml down
 sleep 10;
-docker-compose -f docker-compose.yml up --build -d
+docker-compose -f docker-compose.yml up

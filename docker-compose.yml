@@ -3,28 +3,30 @@ version: '3.8'
 services:
   mongodb:
     image: 'mongo'
+    network_mode: host
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
       MONGO_INITDB_DATABASE: admin
-    ports:
-      - "27017:27017"
+    # ports:
+    #   - "27017:27017"
     volumes:
       - /tmp/data:/data/db
-    networks:
-      - shared-net
+    # networks:
+    #   - shared-net
 
   backend:
     image: batool83/backend:latest
+    network_mode: host
     pull_policy: always
-    ports:
-      - "8080:8080"
-      - "8085:8085"
+    # ports:
+    #   - "8085:8085"
+    #   - "8080:8080"
     restart: always
     depends_on:
       - mongodb
-    networks:
-      - shared-net
+    # networks:
+    #   - shared-net
 
   frontend:
     image: batool83/frontend:latest
@@ -33,7 +35,7 @@ services:
       - "3000:3000"
     restart: always
     depends_on:
-      - mongodb
+      - backend
     networks:
       - shared-net
 
