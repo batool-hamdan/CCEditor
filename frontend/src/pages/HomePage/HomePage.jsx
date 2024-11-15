@@ -30,7 +30,7 @@ export const HomePage = () => {
   return (
     <div className="home_root">
       <div className="home">
-        <span className="home_title">CCEditor App</span>
+        <span className="home_title">CCEditor Application</span>
         <br />
         <Button text={"Create New"} onClick={createNewProject} />
         <h3>OR</h3>
