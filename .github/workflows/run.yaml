@@ -57,7 +57,7 @@ jobs:
       - name: Run Docker Compose
         run: |
           docker-compose -f docker-compose.yml down
-          sleep 30;
+          sleep 60;
           docker-compose -f docker-compose.yml up --build -d
 
   stop-services:
